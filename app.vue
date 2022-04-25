@@ -1,20 +1,15 @@
 <template>
-  <h2>{{ organization.login }}</h2>
-  <p>{{ organization.description }}</p>
+  <h1>{{ user.username }}</h1>
 </template>
 
 <script>
 export default defineComponent({
   async setup() {
-    const [{ data: organization }, { data: repos }] = await Promise.all([
-      useFetch(`https://api.github.com/orgs/nuxt`),
-      useFetch(`https://api.github.com/orgs/nuxt/repos`)
+    const { data: user } = await Promise.all([
+      useFetch(`https://jsonplaceholder.typicode.com/users/1`)
     ])
 
-    return {
-      organization,
-      repos
-    }
+    return { user }
   }
 })
 </script>
