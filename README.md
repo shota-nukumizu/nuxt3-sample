@@ -1,42 +1,26 @@
-# Nuxt 3 Minimal Starter
+ # Nuxt3でAPIデータを抽出する方法
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## API Routes
 
-## Setup
+ Nuxt3では、[API Routes](https://v3.nuxtjs.org/guide/features/server-routes)を活用すればNextのようなAPIサーバを開発できる。
 
-Make sure to install the dependencies:
+ API Routeは`/server/api/`配下で作成する必要がある。それぞれのファイルは`req`や`res`を受け取る関数をデフォルトでエクスポートしておく必要がある。
 
-```bash
-# yarn
-yarn install
+ 以下のようにすれば、簡単にサーバを開発できる。
 
-# npm
-npm install
+ `server/api/hello.ts`
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+ ```ts
+export default () => 'Hello Nuxt3 from server!'
+ ```
 
-## Development Server
+ [JSONPlaceholder](https://jsonplaceholder.typicode.com/)からデータを取得してそれを返却するAPIサーバを作成する。
 
-Start the development server on http://localhost:3000
 
-```bash
-npm run dev
-```
+# 余談
 
-## Production
+**Nuxt3でAPIサーバを開発できることは初耳だった。ここは盲点だった。**NuxtでAPIのデータを抽出するのに1時間半かかってしまった。(あまり情報量が少ないのが主な原因として挙げられるが...)
 
-Build the application for production:
+ # 参考サイト
 
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+ [Nuxt3の新しい機能](https://zenn.dev/azukiazusa/articles/nuxt3-new-features#usefetch/useasyncdata)
